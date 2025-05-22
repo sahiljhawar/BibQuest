@@ -1,0 +1,14 @@
+[project]
+name = "bibquest"
+version = "0.1.0"
+description = "A tool to automatically fetch BibTeX entries from ADS, arXiv, and INSPIRE-HEP based on citation keys found in LaTeX log files or documents."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+    "bibtexparser>=1.4.3",
+    "bs4>=0.0.2",
+    "requests>=2.32.3",
+]
+
+[project.scripts]
+bibquest = "bibquest.cli:main"
