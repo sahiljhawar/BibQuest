@@ -14,3 +14,6 @@ dependencies = [
 [project.scripts]
 bibquest = "bibquest:main"
 
+[project.urls]
+Homepage = "https://github.com/sahiljhawar/BibQuest"
+Tracker = "https://github.com/sahiljhawar/BibQuest/issues"
