@@ -11,4 +11,5 @@ dependencies = [
 ]
 
 [project.scripts]
-bibquest = "bibquest.cli:main"
+bibquest = "bibquest:main"
+

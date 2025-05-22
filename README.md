@@ -3,20 +3,28 @@
 Often while writing scientific documents, it's tedious to constantly switch between your text editor and various tabs to copy BibTeX entries. Instead of interrupting your writing flow, simply use citation keys in your document and let this tool fetch all the bibliography entries automatically once you're done writing.
 
 ## Installation
-
+### Method 1: 
 ```bash
 pip install bibquest
 ```
-or
-```bash
-git clone https://github.com/sahiljhawar/BibQuest.git
-pip install .
-```
-or 
+### Method 2: 
 
 ```bash
+git clone https://github.com/sahiljhawar/BibQuest.git
+```
+With `pip`
+```bash
+pip install .
+```
+or, if using `uv`
+```bash
+cd BibQuest
+uv venv
+. .venv/bin/activate
 uv pip install .
 ```
+
+The above methods will make sure that the `bibquest` command is available in your terminal.
 
 ## Usage
 
