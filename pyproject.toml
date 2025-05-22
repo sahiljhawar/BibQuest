@@ -1,6 +1,6 @@
 [project]
 name = "bibquest"
-version = "0.1.0"
+version = "0.1.post1"
 authors = [{name = "Sahil Jhawar"}]
 description = "A tool to automatically fetch BibTeX entries from ADS, arXiv, and INSPIRE-HEP based on citation keys found in LaTeX log files or documents."
 readme = "README.md"
