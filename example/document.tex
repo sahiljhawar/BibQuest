@@ -1,0 +1,35 @@
+\documentclass{article}
+\usepackage[style=authoryear,backend=biber, natbib]{biblatex}
+\addbibresource{bibliography.bib}
+
+\title{Example Document with Auto-Fetched Citations}
+\author{Your Name}
+
+\begin{document}
+\maketitle
+
+\section{Introduction}
+
+This is an example document demonstrating the auto-bibliography fetcher.
+We can cite papers using their ADS bibcodes like \cite{Cheng:2025fdu},
+arXiv preprints like \cite{arXiv:2103.12345}, or INSPIRE-HEP entries
+like \cite{Weinberg:1967tq}.
+
+Some more citations for testing:
+\begin{itemize}
+    \item Another arXiv citation: \cite{2505.03934}
+    \item Multiple citations: \cite{Cheng:2025fdu,Fabbri:2025cfg}
+    \item ADS has rate limited me, so I will add an example later on
+    \item This is an invalid arXiv citation: \cite{arXiv:3103.12345}
+    \item This is an invalid INSPIRE-HEP citation: \cite{ADS:2025et}
+\end{itemize}
+
+\section{Results}
+
+The results show that \citet{arXiv:2103.12345} found interesting
+correlations, while \citep{arXiv:2103.12345} provided theoretical
+background.
+
+\printbibliography
+
+\end{document}
