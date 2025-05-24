@@ -1,0 +1,21 @@
+cff-version: 1.2.0
+title: BibQuest
+message: >-
+  If you use this software, please cite it using the
+  metadata from this file.
+type: software
+authors:
+  - given-names: Sahil
+    family-names: Jhawar
+    email: sahil.jhawar448@gmail.com
+    name-particle: Sahil
+    orcid: "https://orcid.org/0000-0002-0003-0571"
+repository-code: "https://github.com/sahiljhawar/BibQuest"
+repository-artifact: "https://pypi.org/project/bibquest/"
+abstract: Automagically fill your bib file just using bib keys
+keywords:
+  - bibtex
+  - biblatex
+  - latex
+  - astronomy
+  - research

@@ -1,7 +1,19 @@
-# BibQuest
+
+
+<p align="center">
+    <picture>
+      <source width="600px" height="300px" srcset="assets/bibquest.svg">
+      <img alt="BibQuest">
+    </picture>
+</p>
+
+
+# $$\mathrm{B{\scriptsize{IB}}Q{\scriptsize{UEST}}}$$
+
+
 [![PyPi](https://badge.fury.io/py/bibquest.svg)](https://badge.fury.io/py/bibquest)
 
-Often while writing scientific documents, it's tedious to constantly switch between your text editor and various tabs to copy BibTeX entries. Instead of interrupting your writing flow, simply use citation keys in your document and let this tool fetch all the bibliography entries automatically once you're done writing.
+Often while writing scientific documents, it's tedious to constantly switch between your text editor and various tabs to copy BibTeX entries. Instead of interrupting your writing flow, simply use citation keys in your document and let $\mathrm{B{\scriptsize{IB}}Q{\scriptsize{UEST}}}$ fetch all the bibliography entries automatically once you're done writing.
 
 ## Installation
 ### Method 1: 
@@ -12,6 +24,7 @@ pip install bibquest
 
 ```bash
 git clone https://github.com/sahiljhawar/BibQuest.git
+cd BibQuest
 ```
 With `pip`
 ```bash
@@ -19,7 +32,6 @@ pip install .
 ```
 or, if using `uv`
 ```bash
-cd BibQuest
 uv venv
 . .venv/bin/activate
 uv pip install .
@@ -41,6 +53,15 @@ Scan your TeX source file directly:
 bibquest --scan-tex example/document.tex example/bibliography.bib
 ```
 
+## Terminal Output
+<p align="center">
+    <picture>
+      <source width="600px" height="300px" srcset="assets/example.jpeg">
+      <img alt="BibQuest">
+    </picture>
+</p>
+
+
 ### Options
 - `--delay 2.0` - Set delay between requests (default: 1.0 seconds)
 - `--append` - Append to existing bibliography file (default behavior)
@@ -49,7 +70,7 @@ bibquest --scan-tex example/document.tex example/bibliography.bib
 ## Supported Sources
 - **arXiv**: `arXiv:2301.12345` or `2301.12345`
 - **INSPIRE-HEP**: `Author:2023abc`
-- **NASA ADS**: ADS bibcodes (fallback method)
+- **NASA ADS**: ADS identifiers (fallback method)
 
 
 ## Note
