@@ -2,7 +2,7 @@
 
 <p align="center">
     <picture>
-      <source width="600px" height="300px" srcset="assets/bibquest.svg">
+      <source width="600px" height="300px" srcset="https://github.com/sahiljhawar/BibQuest/blob/main/assets/bibquest.svg">
       <img alt="BibQuest">
     </picture>
 </p>
@@ -53,7 +53,7 @@ bibquest --scan-tex example/document.tex example/bibliography.bib
 ## Terminal Output
 <p align="center">
     <picture>
-      <source width="600px" height="300px" srcset="assets/example.jpeg">
+      <source width="600px" height="300px" srcset="https://github.com/sahiljhawar/BibQuest/blob/main/assets/example.jpeg">
       <img alt="BibQuest">
     </picture>
 </p>
