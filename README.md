@@ -8,9 +8,6 @@
 </p>
 
 
-# $$\mathrm{B{\scriptsize{IB}}Q{\scriptsize{UEST}}}$$
-
-
 [![PyPi](https://badge.fury.io/py/bibquest.svg)](https://badge.fury.io/py/bibquest)
 
 Often while writing scientific documents, it's tedious to constantly switch between your text editor and various tabs to copy BibTeX entries. Instead of interrupting your writing flow, simply use citation keys in your document and let $\mathrm{B{\scriptsize{IB}}Q{\scriptsize{UEST}}}$ fetch all the bibliography entries automatically once you're done writing.
