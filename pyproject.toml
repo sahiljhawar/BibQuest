@@ -4,7 +4,7 @@ authors = [{name = "Sahil Jhawar"}]
 description = "A tool to automatically fetch BibTeX entries from ADS, arXiv, and INSPIRE-HEP based on citation keys found in LaTeX log files or documents."
 readme = "README.md"
 requires-python = ">=3.9"
-dynamic = ["version"]
+version = "0.1.1"
 dependencies = [
     "bibtexparser>=1.4.3",
     "bs4>=0.0.2",
@@ -25,3 +25,6 @@ commit_message = "bump version {old_version} -> {new_version}"
 commit = true
 tag = true
 push = true
+
+[tool.bumpver.file_patterns]
+"pyproject.toml" = ['version = "{version}"']
