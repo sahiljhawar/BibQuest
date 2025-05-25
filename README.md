@@ -38,13 +38,20 @@ The above methods will make sure that the `bibquest` command is available in you
 
 ## Usage
 
-### Method 1: From LaTeX log file (recommended)
+
+### Method 1: From `.bcf` file  (recommended)
+Compile your LaTeX document once, then use the generated `.bcf` file:
+```bash
+bibquest example/document.bcf example/bibliography.bib
+```
+
+### Method 2: From LaTeX log file
 Compile your LaTeX document once, then use the generated log file:
 ```bash
 bibquest example/document.log example/bibliography.bib
 ```
 
-### Method 2: From TeX source file
+### Method 3: From TeX source file
 Scan your TeX source file directly:
 ```bash
 bibquest --scan-tex example/document.tex example/bibliography.bib
