@@ -4,7 +4,7 @@ authors = [{name = "Sahil Jhawar"}]
 description = "A tool to automatically fetch BibTeX entries from ADS, arXiv, and INSPIRE-HEP based on citation keys found in LaTeX log files or documents."
 readme = "README.md"
 requires-python = ">=3.9"
-version = "0.1.1"
+version = "0.1.2"
 dependencies = [
     "bibtexparser>=1.4.3",
     "bs4>=0.0.2",
@@ -19,7 +19,7 @@ Homepage = "https://github.com/sahiljhawar/BibQuest"
 Tracker = "https://github.com/sahiljhawar/BibQuest/issues"
 
 [tool.bumpver]
-current_version = "0.1.1"
+current_version = "0.1.2"
 version_pattern = "MAJOR.MINOR.PATCH[PYTAGNUM]"
 commit_message = "bump version {old_version} -> {new_version}"
 commit = true
