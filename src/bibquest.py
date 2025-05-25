@@ -12,6 +12,7 @@ from urllib.parse import quote
 import requests
 from bs4 import BeautifulSoup
 import bibtexparser
+import xml.etree.ElementTree as ET
 
 
 logging.basicConfig(
@@ -28,17 +29,18 @@ RESET = "\033[0m"
 
 def get_parser() -> argparse.ArgumentParser:
     parser = argparse.ArgumentParser(
-        description="Automatically fetch BibTeX entries from ADS, arXiv, and INSPIRE-HEP",
+        description="Automagically fetch BibTeX entries from ADS, arXiv, and INSPIRE-HEP",
         formatter_class=argparse.RawDescriptionHelpFormatter,
         epilog="""
 Examples:
-        python auto_bib_fetcher.py document.log bibliography.bib
-        python auto_bib_fetcher.py --scan-tex document.tex bibliography.bib
-        python auto_bib_fetcher.py --delay 2.0 document.log bibliography.bib
+        python bibquest.py document.log bibliography.bib
+        python bibquest.py --scan-tex document.tex bibliography.bib
+        python bibquest.py --delay 2.0 document.log bibliography.bib
+        python bibquest.py --delay 2.0 document.bcf bibliography.bib
         """,
     )
 
-    parser.add_argument("input", help="Input file (LaTeX log or TeX source)")
+    parser.add_argument("input", help="Input file (LaTeX log, bcf file or TeX source)")
     parser.add_argument("output", help="Output BibTeX file")
     parser.add_argument(
         "--scan-tex",
@@ -94,6 +96,34 @@ class BibFetcher:
         ):
             citations.add(match.group(1).strip())
 
+        return citations
+
+
+    def extract_citations_from_bcf(self, bcf_file: Path) -> Set[str]:
+        """Extract citation keys from a .bcf file."""
+        citations = set()
+
+        if not bcf_file.exists():
+            logging.warning(f"{RED}BCF file {bcf_file} not found{RESET}")
+            return citations
+
+        tree = ET.parse(bcf_file)
+        root = tree.getroot()
+
+        # Extract namespace from the root tag
+        ns = {'bcf': root.tag.split('}')[0].strip('{')}
+
+        # Find all sections
+        section = root.findall(".//bcf:section", ns)
+        if section is None or len(section) == 0:
+            return set()
+
+        citations = set()
+        for sec in section:
+            # Extract all <bcf:citekey> values under that section
+            for ck in sec.findall("bcf:citekey", ns):
+                if ck.text:
+                    citations.add(ck.text.strip())
         return citations
 
     def extract_citations_from_tex(self, tex_file: Path) -> Set[str]:
@@ -316,8 +346,13 @@ def main():
 
     if args.scan_tex:
         citations = fetcher.extract_citations_from_tex(Path(args.input))
+        logging.info(f"{GREEN}Scanning TeX file for citations...{RESET}")
+    elif args.input.endswith(".bcf"):
+        citations = fetcher.extract_citations_from_bcf(Path(args.input))
+        logging.info(f"{GREEN}Scanning BCF file for citations...{RESET}")
     else:
         citations = fetcher.extract_citations_from_log(Path(args.input))
+        logging.info(f"{GREEN}Scanning log file for citations...{RESET}")
 
     if not citations:
         logging.error(f"{RED}No citations found!{RESET}")
